@@ -3,7 +3,7 @@ const client = new Discord.Client();
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-   client.user.setActivity("اكتب اي شي",{type: 'WATCHING'})
+   client.user.setActivity("3Play",{type: 'WATCHING'})
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -37,7 +37,7 @@ const queue = new Map();
  
  
  
-var prefix = "!" 
+var prefix = "3" 
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
    
@@ -275,7 +275,9 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
    }
    });
  
- 
+ client.on('ready',async () => {
+  client.channels.find(ch => ch.id === "556784542694899712" && ch.type === 'voice').join();
+});
  
  
 client.login(process.env.BOT_TOKEN);
